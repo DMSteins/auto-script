@@ -14,6 +14,9 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import './ipcUtil';
+
+// ipcMain.on('ipc-save-json', async (event, arg) => {});
 
 class AppUpdater {
   constructor() {
