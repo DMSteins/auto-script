@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Radio, Input, Button, notification } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 import axios from 'axios';
-import './index.scss';
 
 const { TextArea } = Input;
 
@@ -79,21 +78,24 @@ const Request = () => {
   };
 
   return (
-    <div className="req-box">
+    <div className="p-4">
       <div>
-        <Input
-          className="req-input mb-4"
-          placeholder="输入描述"
-          onChange={onNameChange}
-        />
-        <div className="flex flex-align-center">
+        <div className="mb-4">
           <Input
-            className="req-input"
+            className="h-10"
+            placeholder="输入描述"
+            onChange={onNameChange}
+          />
+        </div>
+
+        <div className="flex items-center">
+          <Input
+            className="h-10"
             placeholder="输入地址"
             onChange={onUrlChange}
           />
           <Button
-            className="send-btn"
+            className="ml-4"
             type="primary"
             size="large"
             onClick={sendRequest}
@@ -102,7 +104,7 @@ const Request = () => {
             发送请求
           </Button>
           <Button
-            className="send-btn"
+            className="ml-4"
             type="primary"
             size="large"
             onClick={saveRequest}
@@ -112,7 +114,7 @@ const Request = () => {
         </div>
       </div>
       <div>
-        <div className="req-head-title">Method:</div>
+        <div className="mt-6 mb-2">Method:</div>
         <Radio.Group onChange={onMethodChange} defaultValue="get">
           <Radio.Button value="get">GET</Radio.Button>
           <Radio.Button value="post">POST</Radio.Button>
@@ -122,7 +124,7 @@ const Request = () => {
         ''
       ) : (
         <div>
-          <div className="req-head-title m-4 text-red-100">Body:</div>
+          <div className="mt-6 mb-2 text-black">Body:</div>
           <TextArea
             value={body}
             onChange={(e) => setBody(e.target.value)}
@@ -133,7 +135,7 @@ const Request = () => {
       )}
 
       <div>
-        <div className="req-head-title">Response:</div>
+        <div className="mt-6 mb-2 text-black">Response:</div>
         <div>{response && JSON.stringify(response)}</div>
       </div>
     </div>
